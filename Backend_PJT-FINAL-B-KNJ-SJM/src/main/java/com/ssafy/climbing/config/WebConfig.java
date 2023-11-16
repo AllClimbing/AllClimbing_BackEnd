@@ -19,18 +19,9 @@ public class WebConfig implements WebMvcConfigurer {
 
 	}
 
-	// 등록할 인터셉터가 있다면...
-	// 필드를 통해 의존성을 주입 받고
+	//인터셉터 등록
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
-		// 등록하면된다...
-	}
-	
-	//CORS 에러를 해결하기 위해서 컨트롤러에 각각 작성을 할 수도 있지만
-	@Override
-	public void addCorsMappings(CorsRegistry registry) {
-		// TODO Auto-generated method stub
-		registry.addMapping("/**").allowedOrigins("*");
 	}
 	
 

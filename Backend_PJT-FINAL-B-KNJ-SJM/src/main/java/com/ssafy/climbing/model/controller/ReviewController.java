@@ -50,8 +50,8 @@ public class ReviewController  {
 	@GetMapping("/list/{userId}")
 	@ApiOperation(value="유저 리뷰 조회")
 	public ResponseEntity<List<Review>> userReviewlist(@PathVariable String userId){
-		List<Review> reviewList = rService.getUserReview(userId);
-		return new ResponseEntity<List<Review>>(reviewList, HttpStatus.OK); 
+		List<Review> reviewList = rService.getGymReview(userId);
+		return new ResponseEntity<List<Review>>(reviewList, HttpStatus.OK);
 	}
 	
 	@PostMapping("/write")
@@ -68,7 +68,6 @@ public class ReviewController  {
 	@PutMapping("/update")
 	@ApiOperation(value="리뷰 수정")
 	public ResponseEntity<Void> update(@RequestBody Review review){
-		System.out.println(review.toString());
 		int result = rService.modifyReview(review);
 		if (result == 0) {
 			return new ResponseEntity<Void>(HttpStatus.NOT_MODIFIED);
@@ -77,7 +76,7 @@ public class ReviewController  {
 	}
 	
 	
-	@DeleteMapping("/delete/{gymId}")
+	@DeleteMapping("/delete")
 	@ApiOperation(value="리뷰 삭제")
 	public ResponseEntity<Void> delete(@PathVariable String gymId, @RequestParam int reviewNo){
 		int result = rService.removeReview(gymId, reviewNo);

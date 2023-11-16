@@ -49,6 +49,7 @@ public class UserController  {
 	@PostMapping("/login")
 	@ApiOperation(value="로그인")
 	public ResponseEntity<?> login(@RequestBody User user) {
+		System.out.println(user.toString());
 		User selectedUser = uService.getUser(user.getUserId());
 		
 		if (selectedUser == null) {
@@ -62,5 +63,18 @@ public class UserController  {
 		
 		return new ResponseEntity<Boolean>(false, HttpStatus.OK);
 	}
+	
+	@PostMapping("/signup")
+	@ApiOperation(value="회원가입")
+	public ResponseEntity<?> signup(@RequestBody User user) {
+		int result = uService.createUser(user);
+		
+		if (result == 0) {
+			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+		}
+		
+		return new ResponseEntity<Void>(HttpStatus.CREATED);
+	}
+	
 	
 }
