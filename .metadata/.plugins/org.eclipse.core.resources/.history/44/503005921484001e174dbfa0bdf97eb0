@@ -1,0 +1,6 @@
+package com.ssafy.climbing.model.dao;
+
+public interface GymDao {
+	
+
+}

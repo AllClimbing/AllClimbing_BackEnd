@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.climbing.model.dao.ReviewDao">
+	
+	<insert id="insertReview" parameterType="Review">
+		INSERT INTO review (gymId, userId, content, visitDate, regDate)
+		VALUES
+			(#{gymId}, #{userId}, #{content}, #{visitDate}, NOW());
+	</insert>
+	
+	<select id="selectGymReview" resultType="Review" parameterType="String">
+		SELECT *
+		FROM review
+		WHERE gymId = #{gymId};
+	</select>
+	
+	<select id="selectUserReview" resultType="Review" parameterType="String">
+		SELECT *
+		FROM review
+		WHERE userId = #{userId};
+	</select>
+	
+	<select id="selectOneReview" resultType="Review">
+		SELECT *
+		FROM review
+		WHERE gymId = #{gymId} AND reviewNo = #{reviewNo};
+	</select>
+	
+	<update id="updateReview" parameterType="Review">
+		UPDATE review
+		SET content = #{content}
+		WHERE gymId = #{gymId} AND userId=#{userId} AND reviewNo = #{reviewNo};
+	</update>
+	
+	<delete id="deleteReview">
+		DELETE FROM review
+		WHERE gymId = #{gymId} AND reviewNo = #{reviewNo};
+	</delete>
+	
+
+</mapper>

@@ -1,0 +1,33 @@
+package com.ssafy.climbing.model.service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.ssafy.climbing.model.dto.Gym;
+
+@Service
+public class GymServiceImpl implements GymService {
+	
+	
+
+	@Override
+	public List<Gym> selectGym() {
+		return null;
+	}
+
+	@Override
+	public Gym selectOneGym(String gymId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Gym> selectFavoriteGym(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+}

@@ -1,0 +1,19 @@
+package com.ssafy.climbing.model.dao;
+
+import com.ssafy.climbing.model.dto.User;
+
+public interface UserDao {
+
+	// 유저 생성
+	int insertUser(User user);
+
+	// 유저 수정
+	int updateUser(User user);
+
+	// 유저 삭제
+	void deleteUser(String id);
+
+	// 유저 조회
+	User selectOneUser(String userId);
+
+}

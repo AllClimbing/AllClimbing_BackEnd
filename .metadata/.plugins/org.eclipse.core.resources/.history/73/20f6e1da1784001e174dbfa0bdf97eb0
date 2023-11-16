@@ -1,0 +1,7 @@
+package com.ssafy.climbing.model.service;
+
+public interface GymService {
+	
+	
+	
+}

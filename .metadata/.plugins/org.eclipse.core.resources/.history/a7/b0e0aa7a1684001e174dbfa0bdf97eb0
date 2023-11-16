@@ -1,0 +1,19 @@
+package com.ssafy.climbing.model.dto;
+
+import java.util.Date;
+
+public class Review {
+	private int reviewNo; 
+	private String gymId;
+	private String userId;
+	private String reviewImgURL;
+	private String content;
+	private Date visitDate;
+	private Date regDate; 
+	
+	public Review() {
+		
+	}
+
+	
+}

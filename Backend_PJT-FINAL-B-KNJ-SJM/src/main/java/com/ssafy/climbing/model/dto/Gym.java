@@ -1,0 +1,100 @@
+package com.ssafy.climbing.model.dto;
+
+import java.util.Date;
+
+public class Gym {
+	private String gymId;
+	private String gymImgURL;
+	private String Address;
+	private String operationTime;
+	private int area;
+	private String contact;
+	private boolean shower;
+	private boolean parking;
+	private boolean tutroing;
+	private String homepage;
+	private String detail;
+	
+	public Gym() {}
+	
+	public String getGymId() {
+		return gymId;
+	}
+	public void setGymId(String gymId) {
+		this.gymId = gymId;
+	}
+	public String getGymImgURL() {
+		return gymImgURL;
+	}
+	public void setGymImgURL(String gymImgURL) {
+		this.gymImgURL = gymImgURL;
+	}
+	
+	public String getAddress() {
+		return Address;
+	}
+
+	public void setAddress(String address) {
+		Address = address;
+	}
+
+	public String getOperationTime() {
+		return operationTime;
+	}
+	public void setOperationTime(String operationTime) {
+		this.operationTime = operationTime;
+	}
+	public int getArea() {
+		return area;
+	}
+	public void setArea(int area) {
+		this.area = area;
+	}
+	public String getContact() {
+		return contact;
+	}
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+	public boolean isShower() {
+		return shower;
+	}
+	public void setShower(boolean shower) {
+		this.shower = shower;
+	}
+	public boolean isParking() {
+		return parking;
+	}
+	public void setParking(boolean parking) {
+		this.parking = parking;
+	}
+	public boolean isTutroing() {
+		return tutroing;
+	}
+	public void setTutroing(boolean tutroing) {
+		this.tutroing = tutroing;
+	}
+	public String getHomepage() {
+		return homepage;
+	}
+	public void setHomepage(String homepage) {
+		this.homepage = homepage;
+	}
+	public String getDetail() {
+		return detail;
+	}
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
+	@Override
+	public String toString() {
+		return "Gym [gymId=" + gymId + ", gymImgURL=" + gymImgURL + ", operationTime=" + operationTime + ", area="
+				+ area + ", contact=" + contact + ", shower=" + shower + ", parking=" + parking + ", tutroing="
+				+ tutroing + ", homepage=" + homepage + ", detail=" + detail + "]";
+	}
+	
+	
+	
+	
+
+}

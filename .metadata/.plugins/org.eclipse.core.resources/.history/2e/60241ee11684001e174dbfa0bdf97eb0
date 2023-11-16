@@ -1,0 +1,51 @@
+package com.ssafy.climbing.model.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ssafy.climbing.model.dao.ReviewDao;
+import com.ssafy.climbing.model.dto.Review;
+
+@Service
+public class ReviewServiceImpl implements ReviewService {
+
+	// 의존성 주입
+	@Autowired
+	private ReviewDao dao;
+
+	@Override
+	public void writeReview(Review review) {
+		dao.insertReview(review);
+	}
+
+	@Override
+	public List<Review> getGymReview(String gymId) {
+		return dao.selectGymReview(gymId);
+	}
+	
+	@Override
+	public List<Review> getUserReview(String userId) {
+		return dao.selectGymReview(gymId);
+	}
+
+	@Override
+	public Review getOneReview(String gymId, int reviewNo) {
+		return dao.selectOneReview(gymId, reviewNo);
+
+	}
+
+	@Override
+	public void modifyReview(Review review) {
+		dao.updateReview(review);
+
+	}
+
+	@Override
+	public void removeReview(String gymId, int reviewNo) {
+		dao.deleteReview(gymId, reviewNo);
+
+	}
+
+}

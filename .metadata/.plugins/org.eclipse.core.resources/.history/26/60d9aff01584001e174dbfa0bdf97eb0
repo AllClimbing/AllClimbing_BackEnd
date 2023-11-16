@@ -1,0 +1,18 @@
+package com.ssafy.climbing.model.dto;
+
+import java.util.Date;
+
+public class Review {
+	private int reviewNo; //리뷰 번호
+	private String gymId;//영상 ID - 유튜브 ID
+	private String userId;
+	private String content;
+	private Date visitDate;
+	private String regDate; //리뷰 등록일
+	
+	public Review() {
+		
+	}
+
+	
+}

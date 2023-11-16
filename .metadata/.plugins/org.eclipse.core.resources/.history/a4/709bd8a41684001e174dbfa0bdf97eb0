@@ -1,0 +1,22 @@
+package com.ssafy.climbing.model.dto;
+
+import java.util.Date;
+
+public class Gym {
+	private String gymId;
+	private String gymImgURL;
+	private String operationTime;
+	private int area;
+	private String contact;
+	private boolean shower;
+	private boolean parking;
+	private boolean tutroing;
+	private String gymURL;
+	
+	
+	private int viewCnt;
+	
+	
+	
+
+}

@@ -1,0 +1,8 @@
+package com.ssafy.climbing.model.dao;
+
+public interface GymDao {
+	
+	//암장 목록 조회
+	
+
+}

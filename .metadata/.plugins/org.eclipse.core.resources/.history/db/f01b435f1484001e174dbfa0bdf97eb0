@@ -1,0 +1,15 @@
+package com.ssafy.climbing.model.dao;
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
+import com.ssafy.climbing.model.dto.Review;
+import com.ssafy.climbing.model.dto.SearchCondition;
+import com.ssafy.climbing.model.dto.User;
+import com.ssafy.climbing.model.dto.Video;
+
+public interface GymDao {
+	
+
+}

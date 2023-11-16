@@ -1,0 +1,45 @@
+package com.ssafy.climbing.model.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ssafy.climbing.model.dao.UserDao;
+import com.ssafy.climbing.model.dao.VideoDao;
+import com.ssafy.climbing.model.dto.User;
+import com.ssafy.climbing.model.dto.Video;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+	// 의존성 주입
+	@Autowired
+	private UserDao dao;
+	
+	@Autowired
+	private GymDao gDao;
+
+	@Override
+	public int createUser(User user) {
+		return dao.insertUser(user);
+	}
+
+	@Override
+	public User getUser(String userId) {
+		return dao.selectOneUser(userId);
+	}
+
+	@Override
+	public void modifyUser(User user) {
+		dao.updateUser(id, name);
+	}
+	
+	public void removeUser(String id) {
+		dao.deleteUser(id);
+	}
+	
+
+
+
+}

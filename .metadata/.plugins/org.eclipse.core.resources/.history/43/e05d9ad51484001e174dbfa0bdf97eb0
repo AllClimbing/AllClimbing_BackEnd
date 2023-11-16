@@ -1,0 +1,10 @@
+package com.ssafy.climbing.model.service;
+
+import java.util.List;
+
+import com.ssafy.climbing.model.dto.*;
+
+public interface UserService {
+
+	
+}

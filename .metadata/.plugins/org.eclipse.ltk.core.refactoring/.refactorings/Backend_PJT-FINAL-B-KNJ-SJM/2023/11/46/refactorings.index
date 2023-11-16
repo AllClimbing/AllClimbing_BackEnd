@@ -1,0 +1,14 @@
+1700093273476	Rename package 'com.ssafy.fit'
+1700093374893	Rename type 'UserService'
+1700093385860	Rename type 'GymService'
+1700093401276	Rename type 'VideoService'
+1700093414088	Rename type 'VideoServiceImpl'
+1700093419699	Rename compilation unit 'Video.java'
+1700093437913	Rename compilation unit 'VideoDao.java'
+1700093447192	Delete element
+1700093453568	Delete element
+1700093464876	Rename type 'VideoController'
+1700095346226	Rename resource 'VideoMapper.xml'
+1700095371562	Rename field 'dao'
+1700095378193	Rename field 'dao'
+1700106085235	Rename resource 'GymDao.xml'
