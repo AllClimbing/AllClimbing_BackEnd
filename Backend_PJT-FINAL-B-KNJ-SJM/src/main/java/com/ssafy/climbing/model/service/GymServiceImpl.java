@@ -29,6 +29,11 @@ public class GymServiceImpl implements GymService {
 		return gDao.selectFavoriteGym(userId);
 	}
 
+	@Override
+	public int insertGym(Gym gym) {
+		return gDao.insertGym(gym);
+	}
+
 
 
 }

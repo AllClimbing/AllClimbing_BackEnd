@@ -8,8 +8,8 @@ public class Review {
 	private String userId;
 	private String reviewImgURL;
 	private String content;
-	private Date visitDate;
-	private Date regDate; 
+	private String visitDate;
+	private String regDate; 
 	
 	public Review() {
 		
@@ -55,19 +55,19 @@ public class Review {
 		this.content = content;
 	}
 
-	public Date getVisitDate() {
+	public String getVisitDate() {
 		return visitDate;
 	}
 
-	public void setVisitDate(Date visitDate) {
+	public void setVisitDate(String visitDate) {
 		this.visitDate = visitDate;
 	}
 
-	public Date getRegDate() {
+	public String getRegDate() {
 		return regDate;
 	}
 
-	public void setRegDate(Date regDate) {
+	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
 

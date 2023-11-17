@@ -27,5 +27,12 @@
 	
 	</select>
 	
+	<!-- 암장 DB에 삽입 -->
+	<insert id="insertGym" parameterType="Gym">
+		INSERT IGNORE INTO `gym` (gymId, gymName, gymAddress, operationTime, area, contact, shower, parking, tutoring, homepage, detail)
+		VALUES 
+			(#{gymId}, #{gymName}, #{gymAddress}, #{operationTime}, #{area}, #{contact}, #{shower}, #{parking}, #{tutoring}, #{homepage}, #{detail});
+	</insert>
+	
 
 </mapper>

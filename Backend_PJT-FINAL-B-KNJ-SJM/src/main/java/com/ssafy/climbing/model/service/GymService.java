@@ -15,5 +15,7 @@ public interface GymService {
 	//한 유저가 자주가는 암장 목록 조회
 	List<Gym> selectFavoriteGym(String userId);
 	
+	int insertGym(Gym gym);
+	
 	
 }

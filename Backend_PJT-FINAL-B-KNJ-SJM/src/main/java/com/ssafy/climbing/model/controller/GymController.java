@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -56,9 +58,16 @@ public class GymController  {
 	}
 	
 	
-	
-	
-	
-	
+	@PostMapping("/insert")
+	@ApiOperation(value="암장 정보삽입")
+	public ResponseEntity<?> insertGym(@RequestBody Gym gym){
+		System.out.println(gym.toString());
+		int result = gService.insertGym(gym);
+		if (result == 0) {
+			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+	}
+
 
 }
