@@ -1,0 +1,29 @@
+button {
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  #head {
+      display: flex;
+      background-color: #292929;
+      height: 6.7vh;
+      font-size: 18px;
+      justify-content: space-evenly;
+  } 
+  
+  button img {
+      border : none;
+      margin: none;
+      padding : 1rem;
+      width:30rem; 
+      height:30rem;
+  }
+  
+  #backButton{
+      margin-right: auto;
+  }
+  
+  #addButton{
+      margin-left: auto;
+  }
