@@ -20,13 +20,14 @@ CREATE TABLE IF NOT EXISTS `user`(
 
 CREATE TABLE IF NOT EXISTS `gym`(
   `gymId` varchar(200) CHARACTER SET utf8mb4 NOT NULL,
-  `gymname` varchar(60) CHARACTER SET utf8mb4 NOT NULL,
+  `gymAddress` varchar(200) CHARACTER SET utf8mb4 NOT NULL,
+  `gymName` varchar(60) CHARACTER SET utf8mb4 NOT NULL,
   `gymImgURL` varchar(2000) CHARACTER SET utf8mb4,
   `operationTime` varchar(45) CHARACTER SET utf8mb4,
   `area` int(30) NOT NULL,
   `contact` varchar(60) CHARACTER SET utf8mb4,
   `shower` boolean NOT NULL,
-  `park` boolean NOT NULL,
+  `parking` boolean NOT NULL,
   `tutoring` boolean  NOT NULL,
   `homepage` varchar(45) CHARACTER SET utf8mb4,
   `detail` varchar(2000) CHARACTER SET utf8mb4,
