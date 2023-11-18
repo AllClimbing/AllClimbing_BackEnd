@@ -73,6 +73,10 @@ CREATE TABLE IF NOT EXISTS `likedgym`(
 -- );
 
 SELECT * FROM gym;
+
+SELECT * FROM gym
+WHERE gymAddress LIKE "%역삼%";
+
 SELECT * FROM user;
 SELECT * FROM review;
 SELECT * FROM likedgym;
