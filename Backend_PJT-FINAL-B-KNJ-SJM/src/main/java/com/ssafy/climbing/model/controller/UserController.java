@@ -1,5 +1,7 @@
 package com.ssafy.climbing.model.controller;
 
+import java.io.UnsupportedEncodingException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import com.ssafy.climbing.model.dto.User;
 import com.ssafy.climbing.model.service.GymService;
 import com.ssafy.climbing.model.service.ReviewService;
 import com.ssafy.climbing.model.service.UserService;
+import com.ssafy.climbing.util.JwtUtil;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -33,6 +36,10 @@ public class UserController  {
 	
 	@Autowired
 	private ReviewService rService;
+	
+	//로그인 토큰 생성용
+	@Autowired
+	private JwtUtil jwtutil;
 
 	//=======================유저파트 CURD 구현===========================
 	@GetMapping("/{userId}")
@@ -52,16 +59,26 @@ public class UserController  {
 		System.out.println(user.toString());
 		User selectedUser = uService.getUser(user.getUserId());
 		
+		
+		
+		
+		
 		if (selectedUser == null) {
-			return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+			return new ResponseEntity<String>("", HttpStatus.OK);
 		} 
 		
 		if (selectedUser.getPassword().equals(user.getPassword())) {
-			
-			return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+			try {
+				//로그인 성공 시 토큰을 전송
+				return new ResponseEntity<String>(jwtutil.createToken("userId", user.getUserId()), HttpStatus.OK);
+			} catch (UnsupportedEncodingException e) {
+				String msg = "토큰 생성 시 인코딩 에러가 발생하였습니다.";
+				return new ResponseEntity<String>(msg, HttpStatus.OK);
+			}
 		}
 		
-		return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+		return new ResponseEntity<String>("", HttpStatus.OK);
+		
 	}
 	
 	@PostMapping("/signup")

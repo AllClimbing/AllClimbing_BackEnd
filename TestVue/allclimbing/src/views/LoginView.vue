@@ -8,7 +8,7 @@
           <input
             type="user_id"
             id="user_id"
-            v-model="user_id"
+            v-model="userId"
           />
         </div>
         <div>
@@ -38,37 +38,21 @@
   
   <script setup>
   import { ref } from "vue";
-  import { useRouter } from "vue-router";
-  import axios from "axios";
-  
-  const user_id = ref("");
-  const password = ref("");
-  const USER_API = "http://localhost:8080/api/user/login";
-  const router = useRouter();
-  
-  const signup = function () {
-    console.log("정의");
-  };
-  
-  const login = async () => {
-    const user = {
-      userId: user_id.value,
-      password: password.value,
-    };
+  import {useUserStore} from "@/stores/user.js";
 
-    try {
-      const res = await axios.post(USER_API, user);
-      console.log(res.data);
-      if (res.data) {
-        window.sessionStorage.setItem("user", "isLogin");
-        router.push({ name: "home" });
-      } else {
-        alert("로그인 실패");
-      }
-    } catch (err) {
-      console.log(err);
-    }
+  const store = useUserStore();
+
+  const userId = ref(null);
+  const password = ref(null);
+
+  const login = function(){
+
+    store.userLogin(userId.value, password.value);
+
   };
+
+
+  
   </script>
   
   <style scoped>
