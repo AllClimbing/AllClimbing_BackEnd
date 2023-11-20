@@ -19,7 +19,7 @@ public class JwtInterceptor implements HandlerInterceptor{
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-			throws Exception {
+			{
 		
 		//
 		if(request.getMethod().equals("OPTIONS"))
@@ -29,11 +29,17 @@ public class JwtInterceptor implements HandlerInterceptor{
 		String token = request.getHeader(HEADER_AUTH);
 		
 		if(token != null) {
-			jwtUtil.valid(token);
-			return true;
+			try {
+				jwtUtil.valid(token);
+				return true;
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				return false;
+			}
 		}
 		
-		throw new Exception("유효하지 않은 접근이다.");
+		return false;
+		
 		
 	}
 }

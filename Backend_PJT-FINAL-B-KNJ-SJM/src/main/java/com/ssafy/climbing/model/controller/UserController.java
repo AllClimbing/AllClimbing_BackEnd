@@ -58,11 +58,6 @@ public class UserController  {
 	public ResponseEntity<?> login(@RequestBody User user) {
 		System.out.println(user.toString());
 		User selectedUser = uService.getUser(user.getUserId());
-		
-		
-		
-		
-		
 		if (selectedUser == null) {
 			return new ResponseEntity<String>("", HttpStatus.OK);
 		} 
@@ -80,6 +75,8 @@ public class UserController  {
 		return new ResponseEntity<String>("", HttpStatus.OK);
 		
 	}
+	
+	
 	
 	@PostMapping("/signup")
 	@ApiOperation(value="회원가입")
