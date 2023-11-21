@@ -5,9 +5,9 @@
 <mapper namespace="com.ssafy.climbing.model.dao.ReviewDao">
 	
 	<insert id="insertReview" parameterType="Review">
-		INSERT INTO review (gymId, userId, content, visitDate, regDate)
+		INSERT INTO review (gymId, userId, reviewImgURL, originalFileName, saveFileName, content, visitDate, regDate)
 		VALUES
-			(#{gymId}, #{userId}, #{content}, #{visitDate}, NOW());
+			(#{gymId}, #{userId}, #{reviewImgURL}, #{originalFileName}, #{saveFileName}, #{content}, #{visitDate}, NOW());
 	</insert>
 	
 	<select id="selectGymReview" resultType="Review" parameterType="String">

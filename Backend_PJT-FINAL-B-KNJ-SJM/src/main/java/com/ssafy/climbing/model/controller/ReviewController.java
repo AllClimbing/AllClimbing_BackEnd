@@ -65,76 +65,61 @@ public class ReviewController  {
 		return new ResponseEntity<List<Review>>(reviewList, HttpStatus.OK);
 	}
 	
-//	@PostMapping("/write")
-//	@ApiOperation(value="리뷰 작성")
-//		public ResponseEntity<Void> write(@RequestPart("image") MultipartFile file, Review review){
-//		
-//		System.out.println(file.toString());
-//		
-//		//파일이 존재하고 가짜파일이 아닐때만
-//		if (file != null && file.getSize() > 0) {
-//			String uploadPath = "C:\\uploadTemp";
-//			
-//			File folder = new File(uploadPath);
-//			if (!folder.exists()) {
-//				folder.mkdir();
-//			}
-//			
-//			
-//			
-//			//작성일까지만 불러온다
-//			Date date = new Date();
-//			try {
-//				date = sdf.parse(review.getRegDate());
-//			} catch (ParseException e1) {
-//				// TODO Auto-generated catch block
-//				e1.printStackTrace();
-//			}
-//			String writtenDay = sdf.format(date);
-//			
-//			//작성일 폴더가 없다면 폴더 생성
-//			//저장될 폴더경로
-//			String saveFolder = uploadPath+"/"+writtenDay;
-//			folder = new File(saveFolder);
-//			if (!folder.exists()) {
-//				folder.mkdir();
-//			}
-//			
-//			//실제 파일이름을 가져와
-//			//기존 파일이름
-//			String originFile = file.getOriginalFilename();
-//			//저장될 파일이름
-//			UUID uuid = UUID.randomUUID();
-//			String saveFile = uuid.toString();
-//			File target = new File(saveFolder, saveFile);
-//			//FileCopyUtiles
-//			
-//			// 파일 Dto 생성하여 우선 경로만
-//			// DAO를 통해 저장
-//			review.setReviewImgURL(saveFile);
-//			
-//			//target에 file복사
-//			try {
-//				FileCopyUtils.copy(file.getBytes(), target);
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//			
-//		}
-//		
-//		System.out.println("이미지경로 잘들어감? : "+review.getReviewImgURL());
-//		
-//		int result = rService.writeReview(review);
-//		if (result == 0) {
-//			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
-//		}
-//		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
-//	}
-	//////////////////////////////////////////////////////////////////////////
 	@PostMapping("/write")
 	@ApiOperation(value="리뷰 작성")
-	public ResponseEntity<Void> write(@RequestBody Review review){
-	
+		public ResponseEntity<Void> write(@RequestPart("image") MultipartFile file, @RequestPart("review") Review review){
+		
+//		System.out.println(file.toString());
+//		System.out.println(review.toString());
+		
+		//파일이 존재하고 가짜파일이 아닐때만
+		if (file != null && file.getSize() > 0) {
+			String uploadPath = "C:\\uploadTemp";
+			
+			File folder = new File(uploadPath);
+			if (!folder.exists()) {
+				folder.mkdir();
+			}
+			
+			
+			//작성일까지만 불러온다
+			String writtenDay = sdf.format(System.currentTimeMillis());
+			System.out.println(writtenDay);
+			
+			//작성일 폴더가 없다면 폴더 생성
+			//저장될 폴더경로
+			String saveFolder = uploadPath+"/"+writtenDay;
+			folder = new File(saveFolder);
+			if (!folder.exists()) {
+				folder.mkdir();
+			}
+		
+			
+			//실제 파일이름을 가져와
+			//기존 파일이름
+			String originalFileName = file.getOriginalFilename();
+			//저장될 파일이름
+			UUID uuid = UUID.randomUUID();
+			String saveFileName = uuid+"."+file.getContentType();
+			File target = new File(saveFolder, saveFileName);
+			//FileCopyUtiles
+			
+			// 파일 Dto 생성하여 우선 경로만
+			// DAO를 통해 저장
+			review.setReviewImgURL(saveFolder);
+			review.setOriginalFileName(originalFileName);
+			review.setSaveFileName(saveFileName);
+			
+			//target에 file복사
+			try {
+				FileCopyUtils.copy(file.getBytes(), target);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
+		System.out.println("이미지경로 잘들어감? : "+review.getReviewImgURL());
 		
 		int result = rService.writeReview(review);
 		if (result == 0) {
@@ -142,6 +127,18 @@ public class ReviewController  {
 		}
 		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
 	}
+	//////////////////////////////////////////////////////////////////////////
+//	@PostMapping("/write")
+//	@ApiOperation(value="리뷰 작성")
+//	public ResponseEntity<Void> write(@RequestBody Review review){
+//	
+//		
+//		int result = rService.writeReview(review);
+//		if (result == 0) {
+//			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+//		}
+//		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+//	}
 	
 	
 	//////////////////////////////////////////////////////////////////////////

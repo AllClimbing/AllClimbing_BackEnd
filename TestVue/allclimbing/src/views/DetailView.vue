@@ -21,9 +21,12 @@ import axios from 'axios';
 import {ref} from 'vue';
 
 const review = ref({
+    //이건 Props로 받아와야함
     gymId : 1796322688,
-    userId : 'ssafy',
+    //일단 이거는 더미로
+    userId : 'ssafy2',
     content : null,
+    //이 형식으로만 넣을 수 있게 form에서 짜줘야할 듯
     visitDate : '2023-11-06',
 })
 
@@ -37,15 +40,25 @@ const handleImageChange = function(event) {
 };
 
 const submitForm = function() {
-    const formData = new FormData();
+    let formData = new FormData();
     review.value.content = textInput.value;
-    formData.append('review', review.value);
+    //formData.append('diary', new Blob([JSON.stringify(diary.value)], { type: "application/json" }));
+    formData.append('review', new Blob([JSON.stringify(review.value)], {type : "application/json"}));
     console.log(review.value);
-    formData.append('image', selectedImage.value);
-    console.log(formData);
+    if (selectedImage.value){
+        formData.append('image', selectedImage.value);
+    }
+    // 이걸로는 조회불가
+    // console.log(formData);
+    let values = formData.values();
+    for (const pair of values){
+        console.log(pair);
+    }
 
     // 여기서는 간단히 /api/upload로 POST 요청을 보내는 것을 가정합니다.
-    axios.post('http://localhost:8080/api/review/write', formData)
+    axios.post('http://localhost:8080/api/review/write', formData, {  headers: {
+            'Content-Type': 'multipart/form-data',
+        }})
         .then(response => {
             console.log('Server response:', response.data);
             // 성공적으로 서버 응답을 받았을 때 수행할 작업
