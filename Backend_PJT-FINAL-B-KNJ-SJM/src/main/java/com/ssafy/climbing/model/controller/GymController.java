@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafy.climbing.model.dto.Gym;
+import com.ssafy.climbing.model.dto.Keyword;
 import com.ssafy.climbing.model.service.GymService;
 import com.ssafy.climbing.model.service.ReviewService;
 import com.ssafy.climbing.model.service.UserService;
@@ -65,6 +67,27 @@ public class GymController  {
 		int result = gService.insertGym(gym);
 		if (result == 0) {
 			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+	}
+	
+	@PostMapping("/favorite/{gymId}")
+	@ApiOperation(value="암장 찜")
+	public ResponseEntity<?> addFavoriteGym(@RequestBody Keyword keyword){
+
+		int result = gService.addFavoriteGym(keyword);
+		if (result == 0) {
+			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+	}
+	
+	@DeleteMapping("/favorite/delete")
+	@ApiOperation(value="암장 찜 해제")
+	public ResponseEntity<?> insertGym(@RequestBody Keyword keyword){
+		int result = gService.deleteFavoriteGym(keyword);
+		if (result == 0) {
+			return new ResponseEntity<Void>(HttpStatus.NOT_ACCEPTABLE);
 		}
 		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
 	}

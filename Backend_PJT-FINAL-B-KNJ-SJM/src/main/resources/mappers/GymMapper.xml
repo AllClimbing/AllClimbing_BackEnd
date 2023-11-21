@@ -34,5 +34,18 @@
 			(#{gymId}, #{gymName}, #{gymAddress}, #{operationTime}, #{area}, #{contact}, #{shower}, #{parking}, #{tutoring}, #{homepage}, #{detail});
 	</insert>
 	
+	<!-- 암장 찜 기능 -->
+	<insert id="addFavoriteGym" parameterType="Keyword">
+		INSERT INTO `likedgym` (gymId, userId)
+		VALUES
+			(#{gymId}, #{userId});
+	</insert>
+	
+	<!-- 암장 찜 해제 기능 -->
+	<delete id="deleteFavoriteGym" parameterType="Keyword">
+		DELETE FROM `likedgym`
+		WHERE gymId = #{gymId} AND userId = #{userId}
+	</delete>
+
 
 </mapper>

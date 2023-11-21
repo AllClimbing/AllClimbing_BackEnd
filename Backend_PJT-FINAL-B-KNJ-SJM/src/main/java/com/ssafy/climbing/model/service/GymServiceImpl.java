@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ssafy.climbing.model.dao.GymDao;
 import com.ssafy.climbing.model.dto.Gym;
+import com.ssafy.climbing.model.dto.Keyword;
 
 @Service
 public class GymServiceImpl implements GymService {
@@ -33,6 +34,17 @@ public class GymServiceImpl implements GymService {
 	public int insertGym(Gym gym) {
 		return gDao.insertGym(gym);
 	}
+
+	@Override
+	public int addFavoriteGym(Keyword keyword) {
+		return gDao.addFavoriteGym(keyword);
+	}
+
+	@Override
+	public int deleteFavoriteGym(Keyword keyword) {
+		return gDao.deleteFavoriteGym(keyword);
+	}
+	
 
 
 

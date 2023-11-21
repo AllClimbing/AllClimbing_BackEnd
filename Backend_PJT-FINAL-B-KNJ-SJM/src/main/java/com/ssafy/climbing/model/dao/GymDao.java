@@ -2,6 +2,7 @@ package com.ssafy.climbing.model.dao;
 
 import java.util.List;
 
+import com.ssafy.climbing.model.dto.Keyword;
 import com.ssafy.climbing.model.dto.Gym;
 
 public interface GymDao {
@@ -17,6 +18,12 @@ public interface GymDao {
 	
 	//암장 데이터베이스 삽입
 	int insertGym(Gym gym);
+	
+	//암장 찜 기능
+	int addFavoriteGym(Keyword keyword);
+	
+	//암장 찜 해제 기능
+	int deleteFavoriteGym(Keyword keyword);
 	
 	
 
