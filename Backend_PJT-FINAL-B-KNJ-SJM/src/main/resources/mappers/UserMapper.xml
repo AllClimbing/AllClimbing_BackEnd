@@ -24,7 +24,7 @@
     </delete>
 
     <!-- 유저 조회 -->
-    <select id="selectOneUser" resultType="User">
+    <select id="selectOneUser" resultType="User" parameterType="String">
         SELECT *
         FROM user
         WHERE userId = #{userId};

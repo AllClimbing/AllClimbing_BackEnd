@@ -59,7 +59,6 @@ public class UserController  {
 	@PostMapping("/login")
 	@ApiOperation(value="로그인")
 	public ResponseEntity<?> login(@RequestBody User user) {
-		System.out.println(user.toString());
 		User selectedUser = uService.getUser(user.getUserId());
 		if (selectedUser == null) {
 			return new ResponseEntity<String>("", HttpStatus.OK);
@@ -97,7 +96,6 @@ public class UserController  {
 	@ApiOperation(value="유효성 검사")
 	public ResponseEntity<Boolean> validate(@RequestParam String token){
 		
-		System.out.println(token);
 		
 		if(token != null) {
 			try {
