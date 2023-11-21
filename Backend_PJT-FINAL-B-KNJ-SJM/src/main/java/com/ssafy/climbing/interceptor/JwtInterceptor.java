@@ -14,6 +14,7 @@ public class JwtInterceptor implements HandlerInterceptor{
 	private static final String HEADER_AUTH = "access-token";
 	
 	
+	//인터셉터는 페이지변화는 없을 때
 	@Autowired
 	private JwtUtil jwtUtil;
 	
@@ -21,10 +22,8 @@ public class JwtInterceptor implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			{
 		
-		//
-		if(request.getMethod().equals("OPTIONS"))
-			return true;
-		
+		System.out.println(request.getMethod());
+		System.out.println(request.getHeader(HEADER_AUTH));
 		
 		String token = request.getHeader(HEADER_AUTH);
 		

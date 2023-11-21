@@ -42,18 +42,15 @@ const handleImageChange = function(event) {
 const submitForm = function() {
     let formData = new FormData();
     review.value.content = textInput.value;
-    //formData.append('diary', new Blob([JSON.stringify(diary.value)], { type: "application/json" }));
     formData.append('review', new Blob([JSON.stringify(review.value)], {type : "application/json"}));
-    console.log(review.value);
     if (selectedImage.value){
         formData.append('image', selectedImage.value);
     }
-    // 이걸로는 조회불가
-    // console.log(formData);
-    let values = formData.values();
-    for (const pair of values){
-        console.log(pair);
-    }
+    // 이걸로는 조회
+    // let values = formData.values();
+    // for (const pair of values){
+    //     console.log(pair);
+    // }
 
     // 여기서는 간단히 /api/upload로 POST 요청을 보내는 것을 가정합니다.
     axios.post('http://localhost:8080/api/review/write', formData, {  headers: {

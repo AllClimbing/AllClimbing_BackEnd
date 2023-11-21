@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafy.climbing.model.dto.User;
@@ -39,7 +40,9 @@ public class UserController  {
 	
 	//로그인 토큰 생성용
 	@Autowired
-	private JwtUtil jwtutil;
+	private JwtUtil jwtUtil;
+	
+	private static final String HEADER_AUTH = "access-token";
 
 	//=======================유저파트 CURD 구현===========================
 	@GetMapping("/{userId}")
@@ -65,7 +68,7 @@ public class UserController  {
 		if (selectedUser.getPassword().equals(user.getPassword())) {
 			try {
 				//로그인 성공 시 토큰을 전송
-				return new ResponseEntity<String>(jwtutil.createToken("userId", user.getUserId()), HttpStatus.OK);
+				return new ResponseEntity<String>(jwtUtil.createToken("userId", user.getUserId()), HttpStatus.OK);
 			} catch (UnsupportedEncodingException e) {
 				String msg = "토큰 생성 시 인코딩 에러가 발생하였습니다.";
 				return new ResponseEntity<String>(msg, HttpStatus.OK);
@@ -89,6 +92,27 @@ public class UserController  {
 		
 		return new ResponseEntity<Void>(HttpStatus.CREATED);
 	}
+	
+	@GetMapping("/validation")
+	@ApiOperation(value="유효성 검사")
+	public ResponseEntity<Boolean> validate(@RequestParam String token){
+		
+		System.out.println(token);
+		
+		if(token != null) {
+			try {
+				jwtUtil.valid(token);
+				return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+			}
+		}
+		
+		
+		return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+	}
+	
 	
 	
 }
