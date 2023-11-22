@@ -98,9 +98,10 @@
 <br>
 <br>
 
-### 2️⃣ 페이지 정의서
+### 2️⃣ 페이지 정의서 & 와이어프레임
 
-![페이지 정의서](https://github.com/jseok0917/jseok0917/assets/139304962/bf23f389-aab4-4010-8078-18a66bb709ab)
+<img src="https://github.com/jseok0917/jseok0917/assets/139304962/bf23f389-aab4-4010-8078-18a66bb709ab" style="width : 700px" />
+<img src="https://github.com/jseok0917/jseok0917/assets/139304962/4bbd2495-ab13-4662-bffb-86be3ed90fe5" />
 
 <br>
 <br>
@@ -161,7 +162,13 @@
 
 <hr>
 
-1️⃣ 2️⃣ 3️⃣ 4️⃣ 
+1️⃣ MyBatis를 활용한 ERD 구현 / 암장 목록 크롤링을 통해 DB에 넣음
+
+2️⃣ SpringBoot를 활용한 MVC패턴 설명
+
+3️⃣ Jwt를 통한 로그인, 로그인 인터셉터 구현
+
+4️⃣ REST API 설명
 
 
 
