@@ -66,7 +66,7 @@ public class ReviewController  {
 	
 	@PostMapping("/write")
 	@ApiOperation(value="리뷰 작성")
-		public ResponseEntity<Void> write(@RequestPart(value="image", required = false) MultipartFile file, @RequestPart("review") Review review){
+		public synchronized ResponseEntity<Void> write(@RequestPart(value="image", required = false) MultipartFile file, @RequestPart("review") Review review){
 		
 //		System.out.println(file.toString());
 //		System.out.println(review.toString());
@@ -97,9 +97,10 @@ public class ReviewController  {
 			//실제 파일이름을 가져와
 			//기존 파일이름
 			String originalFileName = file.getOriginalFilename();
+			int nameLength = originalFileName.length();
 			//저장될 파일이름
 			UUID uuid = UUID.randomUUID();
-			String saveFileName = uuid+"."+file.getContentType();
+			String saveFileName = uuid.toString()+originalFileName.substring(nameLength-4, nameLength);
 //			File target = new File(saveFolder, saveFileName);
 //			System.out.println("현재 타겟파일은 무엇인가 : "+target.toString());
 			//FileCopyUtiles
@@ -110,9 +111,17 @@ public class ReviewController  {
 			review.setOriginalFileName(originalFileName);
 			review.setSaveFileName(saveFileName);
 			
+			File target = new File(saveFolder, saveFileName);
+//			try {
+//				FileCopyUtils.copy("시발시발시발".getBytes(), target);
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			
 			//target에 file복사
 			try {
-				FileCopyUtils.copy(file.getBytes(), new File(saveFolder, saveFileName));
+				FileCopyUtils.copy(file.getBytes(), target);
 			} catch (IOException e) {
 				System.out.println("왜 예외로들어오는거지");
 				e.printStackTrace();
