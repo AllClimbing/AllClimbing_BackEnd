@@ -19,6 +19,9 @@ public interface GymService {
 	//암장 추가 기능
 	int insertGym(Gym gym);
 	
+	//암장 정보 업데이트 기능
+	int updateGym(Gym gym);
+	
 	//암장 찜 체크용
 	Keyword checkFavoriteGym(String gymId, String userId);
 	

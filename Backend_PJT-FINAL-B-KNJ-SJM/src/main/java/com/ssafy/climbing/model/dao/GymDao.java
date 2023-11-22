@@ -21,6 +21,9 @@ public interface GymDao {
 	//암장 데이터베이스 삽입
 	int insertGym(Gym gym);
 	
+	//암장 정보 업데이트
+	int updateGym(Gym gym);
+	
 	//암장 찜 체크용
 	Keyword checkFavoriteGym(@Param("userId") String userId, @Param("gymId") String gymId);
 	

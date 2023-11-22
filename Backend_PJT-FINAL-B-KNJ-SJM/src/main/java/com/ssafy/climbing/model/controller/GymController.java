@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -63,7 +63,6 @@ public class GymController  {
 	@PostMapping("/insert")
 	@ApiOperation(value="암장 정보삽입")
 	public ResponseEntity<?> insertGym(@RequestBody Gym gym){
-		System.out.println(gym.toString());
 		int result = gService.insertGym(gym);
 		if (result == 0) {
 			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
@@ -71,12 +70,21 @@ public class GymController  {
 		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
 	}
 	
+	@PutMapping("/update")
+	@ApiOperation(value="암장 정보업데이트")
+	public ResponseEntity<?> updateGym(@RequestBody Gym gym){
+		System.out.println(gym.toString());
+		int result = gService.updateGym(gym);
+		if (result == 0) {
+			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+	}
+	
+	
 	@PostMapping("/favorite")
 	@ApiOperation(value="암장 찜 체크용")
 	public ResponseEntity<?> checkFavoriteGym(@RequestBody Keyword keyword){
-//		System.out.println("==================구분선==================");
-//		System.out.println(keyword.getGymId());
-//		System.out.println(keyword.getUserId());
 		Keyword resultType = gService.checkFavoriteGym(keyword.getUserId(), keyword.getGymId());
 		if (resultType == null) {
 			return new ResponseEntity<Boolean>(false, HttpStatus.OK);
@@ -89,7 +97,6 @@ public class GymController  {
 	@PostMapping("/favorite/{gymId}")
 	@ApiOperation(value="암장 찜")
 	public ResponseEntity<?> addFavoriteGym(@RequestBody Keyword keyword){
-		System.out.println("찜?"+keyword.toString());
 		int result = gService.addFavoriteGym(keyword);
 		if (result == 0) {
 			return new ResponseEntity<Integer>(result, HttpStatus.BAD_REQUEST);
@@ -107,6 +114,7 @@ public class GymController  {
 		}
 		return new ResponseEntity<Integer>(result, HttpStatus.ACCEPTED);
 	}
+	
 
 
 }

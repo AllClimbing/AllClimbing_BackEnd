@@ -11,6 +11,7 @@
 	</select>
 	
 	
+	
 	<!-- 암장 1개 조회 -->
 	<select id ="selectOneGym" resultType = "Gym" parameterType = "String">
 		SELECT *
@@ -27,12 +28,22 @@
 	
 	</select>
 	
-	<!-- 암장 DB에 삽입 -->
+	<!-- 암장 DB에 추가 -->
 	<insert id="insertGym" parameterType="Gym">
 		INSERT IGNORE INTO `gym` (gymId, gymName, gymAddress, operationTime, area, contact, shower, parking, tutoring, homepage, detail)
 		VALUES 
 			(#{gymId}, #{gymName}, #{gymAddress}, #{operationTime}, #{area}, #{contact}, #{shower}, #{parking}, #{tutoring}, #{homepage}, #{detail});
 	</insert>
+	
+	<!-- 암장 정보 업데이트 -->
+	<update id="updateGym" parameterType="Gym">
+		UPDATE `gym` 
+		SET gymName = #{gymName},gymAddress = #{gymAddress}
+		,operationTime = #{operationTime},area = #{area}
+		,contact = #{contact},shower = #{shower}, parking = #{parking}
+		,tutoring = #{tutoring},homepage = #{homepage}, detail =  #{detail}
+		WHERE gymId = #{gymId}
+	</update>
 	
 	<!-- 암장 찜 체크 -->
 	<select id="checkFavoriteGym" resultType="Keyword">
