@@ -2,15 +2,14 @@ package com.ssafy.climbing.model.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -67,7 +66,7 @@ public class ReviewController  {
 	
 	@PostMapping("/write")
 	@ApiOperation(value="리뷰 작성")
-		public ResponseEntity<Void> write(@RequestPart("image") MultipartFile file, @RequestPart("review") Review review){
+		public ResponseEntity<Void> write(@RequestPart(value="image", required = false) MultipartFile file, @RequestPart("review") Review review){
 		
 //		System.out.println(file.toString());
 //		System.out.println(review.toString());
@@ -101,7 +100,8 @@ public class ReviewController  {
 			//저장될 파일이름
 			UUID uuid = UUID.randomUUID();
 			String saveFileName = uuid+"."+file.getContentType();
-			File target = new File(saveFolder, saveFileName);
+//			File target = new File(saveFolder, saveFileName);
+//			System.out.println("현재 타겟파일은 무엇인가 : "+target.toString());
 			//FileCopyUtiles
 			
 			// 파일 Dto 생성하여 우선 경로만
@@ -112,8 +112,9 @@ public class ReviewController  {
 			
 			//target에 file복사
 			try {
-				FileCopyUtils.copy(file.getBytes(), target);
+				FileCopyUtils.copy(file.getBytes(), new File(saveFolder, saveFileName));
 			} catch (IOException e) {
+				System.out.println("왜 예외로들어오는거지");
 				e.printStackTrace();
 			}
 			
