@@ -49,6 +49,7 @@ public class UserController  {
 	@ApiOperation(value="유저 정보 조회")
 	public ResponseEntity<?> list(@PathVariable String userId){
 		User user = uService.getUser(userId);
+		user.setPassword("*");
 		if (user == null) {
 			return new ResponseEntity<Void>(HttpStatus.NO_CONTENT);			
 		}
