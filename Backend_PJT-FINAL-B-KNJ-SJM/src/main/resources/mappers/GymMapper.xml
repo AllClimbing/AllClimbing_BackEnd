@@ -22,9 +22,9 @@
 	
 	<!-- 자주가는 암장목록 조회 -->
 	<select id="selectFavoriteGym" resultType="Gym" parameterType="String">
-		SELECT *
-		FROM likedgym
-		WHERE userId = #{userId}
+		SELECT v.gymId, v.gymAddress, v.gymName, v.gymImgURL, v.operationTime, v.area, v.contact, v.shower, v.parking, v.tutoring, v.homepage, v.detail FROM 
+		gym v JOIN likedgym u ON v.gymId = u.gymId
+		WHERE u.userId = #{userId}
 	
 	</select>
 	

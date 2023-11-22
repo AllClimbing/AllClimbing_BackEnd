@@ -42,4 +42,9 @@ VALUES
 INSERT INTO `likedgym` (`userId`, `gymId`)
 VALUES
 ('ssafy','1796322688'),
-('ssafy','1455205552');
+('ssafy','1455205552'),
+('ssafy', '635872075');
+
+SELECT v.gymId, v.gymAddress, v.gymName, v.gymImgURL, v.operationTime, v.area, v.contact, v.shower, v.parking, v.tutoring, v.homepage, v.detail FROM 
+gym v JOIN likedgym u ON v.gymId = u.gymId
+WHERE u.userId = "ssafy";

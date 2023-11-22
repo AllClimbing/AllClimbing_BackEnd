@@ -82,9 +82,9 @@ SELECT * FROM gym WHERE gymId = 635872075;
 SELECT * FROM user;
 SELECT * FROM likedgym WHERE gymId = 1221512402 AND userId="ssafy";
 SELECT * FROM likedgym;
+SELECT * FROM review;
 
-SELECT * FROM `likedgym`
-		WHERE gymId = 635872075 AND userId = "ssafy";
+SELECT * FROM `likedgym`;
         
 SELECT * FROM `likedgym`
 WHERE gymId = 635872075 AND userId = "ssafy";
