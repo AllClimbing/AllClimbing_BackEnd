@@ -89,6 +89,7 @@ public class GymController  {
 	@PostMapping("/favorite/{gymId}")
 	@ApiOperation(value="암장 찜")
 	public ResponseEntity<?> addFavoriteGym(@RequestBody Keyword keyword){
+		System.out.println("찜?"+keyword.toString());
 		int result = gService.addFavoriteGym(keyword);
 		if (result == 0) {
 			return new ResponseEntity<Integer>(result, HttpStatus.BAD_REQUEST);
@@ -96,9 +97,10 @@ public class GymController  {
 		return new ResponseEntity<Integer>(result, HttpStatus.ACCEPTED);
 	}
 	
-	@DeleteMapping("/favorite/delete")
+	@PostMapping("/favorite/delete")
 	@ApiOperation(value="암장 찜 해제")
-	public ResponseEntity<?> insertGym(@RequestBody Keyword keyword){
+	public ResponseEntity<?> deleteFavoriteGym(@RequestBody Keyword keyword){
+		System.out.println("찜해제?"+keyword.toString());
 		int result = gService.deleteFavoriteGym(keyword);
 		if (result == 0) {
 			return new ResponseEntity<Integer>(result, HttpStatus.NOT_ACCEPTABLE);

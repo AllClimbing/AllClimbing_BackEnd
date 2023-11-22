@@ -42,9 +42,9 @@
 	
 	<!-- 암장 찜 기능 -->
 	<insert id="addFavoriteGym" parameterType="Keyword">
-		INSERT INTO `likedgym` (gymId, userId)
+		INSERT INTO `likedgym` (userId, gymId)
 		VALUES
-			(#{gymId}, #{userId});
+			(#{userId}, #{gymId});
 	</insert>
 	
 	<!-- 암장 찜 해제 기능 -->
