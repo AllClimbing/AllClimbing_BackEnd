@@ -21,7 +21,7 @@ public class JwtUtil {
 				.setHeaderParam("alg", "HS256")
 				.setHeaderParam("typ", "JWT") //헤더완료	
 				.claim(key, value)
-				.setExpiration(new Date(System.currentTimeMillis()+360000)) //세션 만료시간 60분
+				.setExpiration(new Date(System.currentTimeMillis()+36000000)) //세션 만료시간 10시간
 				.signWith(SignatureAlgorithm.HS256, SALT.getBytes("UTF-8")) //서명완료
 				.compact();
 	}

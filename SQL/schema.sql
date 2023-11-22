@@ -43,9 +43,11 @@ CREATE TABLE IF NOT EXISTS `gym`(
 
 CREATE TABLE IF NOT EXISTS `review`(
   `reviewNo` int(52) AUTO_INCREMENT NOT NULL,
-  `reviewImgURL` varchar(2000) CHARACTER SET utf8mb4,
   `gymId` varchar(45) CHARACTER SET utf8mb4 NOT NULL,
   `userId` varchar(45) CHARACTER SET utf8mb4 NOT NULL DEFAULT '',
+  `reviewImgURL` varchar(500) CHARACTER SET utf8mb4,
+  `originalFileName` varchar(500) CHARACTER SET utf8mb4,
+  `saveFileName` varchar(500) CHARACTER SET utf8mb4,
   `content` varchar(200) CHARACTER SET utf8mb4 NOT NULL DEFAULT '',
   `visitDate` DATE NOT NULL,
   `regDate` TIMESTAMP DEFAULT now() ,
@@ -72,10 +74,10 @@ CREATE TABLE IF NOT EXISTS `likedgym`(
 --   FOREIGN KEY (`gymId`) REFERENCES `gym` (`gymId`) ON DELETE CASCADE
 -- );
 
-SELECT * FROM gym;
+DESC gym;
+DESC user;
 
-SELECT * FROM gym
-WHERE gymAddress LIKE "%역삼%";
+SELECT * FROM gym WHERE gymId = 635872075;
 
 SELECT * FROM user;
 SELECT * FROM review;
