@@ -66,7 +66,7 @@ public class ReviewController  {
 	
 	@PostMapping("/write")
 	@ApiOperation(value="리뷰 작성")
-		public synchronized ResponseEntity<Void> write(@RequestPart(value="image", required = false) MultipartFile file, @RequestPart("review") Review review){
+		public ResponseEntity<Void> write(@RequestPart(value="image", required = false) MultipartFile file, @RequestPart("review") Review review){
 		
 //		System.out.println(file.toString());
 //		System.out.println(review.toString());

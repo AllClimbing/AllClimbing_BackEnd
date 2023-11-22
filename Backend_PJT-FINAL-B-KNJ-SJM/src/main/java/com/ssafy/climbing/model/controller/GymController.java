@@ -77,9 +77,9 @@ public class GymController  {
 
 		int result = gService.addFavoriteGym(keyword);
 		if (result == 0) {
-			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<Integer>(result, HttpStatus.BAD_REQUEST);
 		}
-		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+		return new ResponseEntity<Integer>(result, HttpStatus.ACCEPTED);
 	}
 	
 	@DeleteMapping("/favorite/delete")
@@ -87,9 +87,9 @@ public class GymController  {
 	public ResponseEntity<?> insertGym(@RequestBody Keyword keyword){
 		int result = gService.deleteFavoriteGym(keyword);
 		if (result == 0) {
-			return new ResponseEntity<Void>(HttpStatus.NOT_ACCEPTABLE);
+			return new ResponseEntity<Integer>(result, HttpStatus.NOT_ACCEPTABLE);
 		}
-		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
+		return new ResponseEntity<Integer>(result, HttpStatus.ACCEPTED);
 	}
 
 
