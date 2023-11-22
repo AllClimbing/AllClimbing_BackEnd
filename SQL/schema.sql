@@ -52,16 +52,16 @@ CREATE TABLE IF NOT EXISTS `review`(
   `visitDate` DATE NOT NULL,
   `regDate` TIMESTAMP DEFAULT now() ,
   PRIMARY KEY (`reviewNo`),
-  CONSTRAINT `gym_ibfk_1` FOREIGN KEY (`gymId`) REFERENCES `gym` (`gymId`) ON DELETE CASCADE,
-  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE
+  CONSTRAINT `gym_ibfk_1` FOREIGN KEY (`gymId`) REFERENCES `gym` (`gymId`),
+  CONSTRAINT `user_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `user` (`userId`)
 );
 
 CREATE TABLE IF NOT EXISTS `likedgym`(
   `userId` varchar(45) CHARACTER SET utf8mb4 NOT NULL,
   `gymId` varchar(45) CHARACTER SET utf8mb4 NOT NULL,
   PRIMARY KEY (`userId`, `gymId`),
-  FOREIGN KEY (`userId`) REFERENCES `user` (`userId`) ON DELETE CASCADE,
-  FOREIGN KEY (`gymId`) REFERENCES `gym` (`gymId`) ON DELETE CASCADE
+  FOREIGN KEY (`userId`) REFERENCES `user` (`userId`),
+  FOREIGN KEY (`gymId`) REFERENCES `gym` (`gymId`)
 );
 
 -- CREATE TABLE IF NOT EXISTS `visitedgym`(
@@ -80,8 +80,14 @@ DESC user;
 SELECT * FROM gym WHERE gymId = 635872075;
 
 SELECT * FROM user;
-SELECT * FROM review;
+SELECT * FROM likedgym WHERE gymId = 1221512402 AND userId="ssafy";
 SELECT * FROM likedgym;
+
+SELECT * FROM `likedgym`
+		WHERE gymId = 635872075 AND userId = "ssafy";
+        
+SELECT * FROM `likedgym`
+WHERE gymId = 635872075 AND userId = "ssafy";
 
 SELECT *
 		FROM review

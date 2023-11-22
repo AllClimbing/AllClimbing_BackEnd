@@ -5109,3 +5109,4 @@
 2023-11-22 14:36:21,159 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 3 resources
 2023-11-22 14:36:21,162 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2023-11-22 14:36:21,162 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2023-11-22 14:36:21,162 [Worker-145: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\SSAFY\Downloads\최종플젝관련\AllClimbing\AllClimbing_BackEnd\Backend_PJT-FINAL-B-KNJ-SJM\src\test\resources
