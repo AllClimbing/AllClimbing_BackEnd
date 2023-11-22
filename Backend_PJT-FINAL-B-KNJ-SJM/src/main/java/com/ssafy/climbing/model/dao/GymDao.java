@@ -2,6 +2,8 @@ package com.ssafy.climbing.model.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.ssafy.climbing.model.dto.Keyword;
 import com.ssafy.climbing.model.dto.Gym;
 
@@ -18,6 +20,9 @@ public interface GymDao {
 	
 	//암장 데이터베이스 삽입
 	int insertGym(Gym gym);
+	
+	//암장 찜 체크용
+	Keyword checkFavoriteGym(@Param("userId") String userId, @Param("gymId") String gymId);
 	
 	//암장 찜 기능
 	int addFavoriteGym(Keyword keyword);

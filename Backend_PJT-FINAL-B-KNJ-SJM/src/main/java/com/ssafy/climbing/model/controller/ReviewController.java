@@ -54,6 +54,7 @@ public class ReviewController  {
 	@ApiOperation(value="암장 리뷰 조회")
 	public ResponseEntity<List<Review>> gymReviewlist(@PathVariable String gymId){
 		List<Review> reviewList = rService.getGymReview(gymId);
+		System.out.println("리뷰 목록 조회했습니다 했습니다.");
 		return new ResponseEntity<List<Review>>(reviewList, HttpStatus.OK);
 	}
 	
@@ -112,13 +113,7 @@ public class ReviewController  {
 			review.setSaveFileName(saveFileName);
 			
 			File target = new File(saveFolder, saveFileName);
-//			try {
-//				FileCopyUtils.copy("시발시발시발".getBytes(), target);
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-			
+
 			//target에 file복사
 			try {
 				FileCopyUtils.copy(file.getBytes(), target);

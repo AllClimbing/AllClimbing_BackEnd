@@ -44,6 +44,11 @@ public class GymServiceImpl implements GymService {
 	public int deleteFavoriteGym(Keyword keyword) {
 		return gDao.deleteFavoriteGym(keyword);
 	}
+
+	@Override
+	public Keyword checkFavoriteGym(String userId, String gymId) {
+		return gDao.checkFavoriteGym(userId, gymId);
+	}
 	
 
 
