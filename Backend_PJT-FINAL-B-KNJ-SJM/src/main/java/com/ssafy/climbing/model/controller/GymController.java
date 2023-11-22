@@ -74,22 +74,21 @@ public class GymController  {
 	@PostMapping("/favorite")
 	@ApiOperation(value="암장 찜 체크용")
 	public ResponseEntity<?> checkFavoriteGym(@RequestBody Keyword keyword){
-		System.out.println("==================구분선==================");
-		System.out.println(keyword.getGymId());
-		System.out.println(keyword.getUserId());
-		Keyword resultType = gService.checkFavoriteGym(keyword.getGymId(), keyword.getUserId());
-		
+//		System.out.println("==================구분선==================");
+//		System.out.println(keyword.getGymId());
+//		System.out.println(keyword.getUserId());
+		Keyword resultType = gService.checkFavoriteGym(keyword.getUserId(), keyword.getGymId());
 		if (resultType == null) {
-			return new ResponseEntity<Integer>(0, HttpStatus.OK);
+			return new ResponseEntity<Boolean>(false, HttpStatus.OK);
 		}
-		return new ResponseEntity<Integer>(1, HttpStatus.ACCEPTED);
+		System.out.println(resultType.toString());
+		return new ResponseEntity<Boolean>(true, HttpStatus.ACCEPTED);
 	}
 	
 	
 	@PostMapping("/favorite/{gymId}")
 	@ApiOperation(value="암장 찜")
 	public ResponseEntity<?> addFavoriteGym(@RequestBody Keyword keyword){
-//		System.out.println("잘 들어왔는가"+keyword.toString());
 		int result = gService.addFavoriteGym(keyword);
 		if (result == 0) {
 			return new ResponseEntity<Integer>(result, HttpStatus.BAD_REQUEST);

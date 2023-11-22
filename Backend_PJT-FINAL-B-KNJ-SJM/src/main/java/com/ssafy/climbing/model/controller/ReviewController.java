@@ -54,7 +54,6 @@ public class ReviewController  {
 	@ApiOperation(value="암장 리뷰 조회")
 	public ResponseEntity<List<Review>> gymReviewlist(@PathVariable String gymId){
 		List<Review> reviewList = rService.getGymReview(gymId);
-		System.out.println("리뷰 목록 조회했습니다 했습니다.");
 		return new ResponseEntity<List<Review>>(reviewList, HttpStatus.OK);
 	}
 	
