@@ -60,8 +60,19 @@ public class ReviewController  {
 	@GetMapping("/list/{userId}")
 	@ApiOperation(value="유저 리뷰 조회")
 	public ResponseEntity<List<Review>> userReviewlist(@PathVariable String userId){
-		List<Review> reviewList = rService.getGymReview(userId);
+		List<Review> reviewList = rService.getUserReview(userId);
 		return new ResponseEntity<List<Review>>(reviewList, HttpStatus.OK);
+	}
+	
+	@GetMapping("/select/{reviewNo}")
+	@ApiOperation(value="리뷰 한개 조회")
+	public ResponseEntity<?> selectOneReview(@PathVariable int reviewNo){
+		System.out.println("조회해간거맞다 리뷰한개");
+		Review review = rService.getOneReview(reviewNo);
+		if (review == null) {
+			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
+		}
+		return new ResponseEntity<Review>(review, HttpStatus.OK);
 	}
 	
 	@PostMapping("/write")
@@ -148,7 +159,58 @@ public class ReviewController  {
 	//////////////////////////////////////////////////////////////////////////
 	@PutMapping("/update")
 	@ApiOperation(value="리뷰 수정")
-	public ResponseEntity<Void> update(@RequestBody Review review){
+	public ResponseEntity<Void> update(@RequestPart(value="image", required = false) MultipartFile file, @RequestPart("review") Review review){
+		if (file != null && file.getSize() > 0) {
+			String uploadPath = "C:\\uploadTemp";
+			
+			File folder = new File(uploadPath);
+			if (!folder.exists()) {
+				folder.mkdir();
+			}
+			
+			
+			//작성일까지만 불러온다
+			String writtenDay = sdf.format(System.currentTimeMillis());
+			System.out.println(writtenDay);
+			
+			//작성일 폴더가 없다면 폴더 생성
+			//저장될 폴더경로
+			String saveFolder = uploadPath+"/"+writtenDay;
+			folder = new File(saveFolder);
+			if (!folder.exists()) {
+				folder.mkdir();
+			}
+		
+			
+			//실제 파일이름을 가져와
+			//기존 파일이름
+			String originalFileName = file.getOriginalFilename();
+			int nameLength = originalFileName.length();
+			//저장될 파일이름
+			UUID uuid = UUID.randomUUID();
+			String saveFileName = uuid.toString()+originalFileName.substring(nameLength-4, nameLength);
+//			File target = new File(saveFolder, saveFileName);
+//			System.out.println("현재 타겟파일은 무엇인가 : "+target.toString());
+			//FileCopyUtiles
+			
+			// 파일 Dto 생성하여 우선 경로만
+			// DAO를 통해 저장
+			review.setReviewImgURL(saveFolder);
+			review.setOriginalFileName(originalFileName);
+			review.setSaveFileName(saveFileName);
+			
+			File target = new File(saveFolder, saveFileName);
+
+			//target에 file복사
+			try {
+				FileCopyUtils.copy(file.getBytes(), target);
+			} catch (IOException e) {
+				System.out.println("왜 예외로들어오는거지");
+				e.printStackTrace();
+			}
+			
+		}
+		
 		int result = rService.modifyReview(review);
 		if (result == 0) {
 			return new ResponseEntity<Void>(HttpStatus.NOT_MODIFIED);
@@ -157,10 +219,10 @@ public class ReviewController  {
 	}
 	
 	
-	@DeleteMapping("/delete")
+	@DeleteMapping("/delete/{reviewNo}")
 	@ApiOperation(value="리뷰 삭제")
-	public ResponseEntity<Void> delete(@PathVariable String gymId, @RequestParam int reviewNo){
-		int result = rService.removeReview(gymId, reviewNo);
+	public ResponseEntity<Void> delete(@PathVariable int reviewNo){
+		int result = rService.removeReview(reviewNo);
 		if (result == 0) {
 			return new ResponseEntity<Void>(HttpStatus.NOT_ACCEPTABLE);
 		}

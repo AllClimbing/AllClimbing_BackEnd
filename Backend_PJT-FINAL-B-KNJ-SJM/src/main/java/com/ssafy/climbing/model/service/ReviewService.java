@@ -19,9 +19,9 @@ public interface ReviewService {
 	int modifyReview(Review review);
 
 	// 리뷰 한개 조회
-	Review getOneReview(String gymId, int reviewNo);
+	Review getOneReview(int reviewNo);
 
 	// 리뷰 삭제
-	int removeReview(String gymId, int reviewNo);
+	int removeReview(int reviewNo);
 
 }

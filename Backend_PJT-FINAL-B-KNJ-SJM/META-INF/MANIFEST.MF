@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Backend_PJT-FINAL-B-KNJ-SJM
+Bundle-SymbolicName: Backend_PJT-FINAL-B-KNJ-SJM
+Bundle-Version: 1.0.0.qualifier
+Export-Package: com.example.demo,
+ com.ssafy.climbing,
+ com.ssafy.climbing.config,
+ com.ssafy.climbing.interceptor,
+ com.ssafy.climbing.model.controller,
+ com.ssafy.climbing.model.dao,
+ com.ssafy.climbing.model.dto,
+ com.ssafy.climbing.model.service,
+ com.ssafy.climbing.util

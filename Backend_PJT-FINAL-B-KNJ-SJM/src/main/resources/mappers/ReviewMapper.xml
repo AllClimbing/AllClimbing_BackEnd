@@ -25,18 +25,18 @@
 	<select id="selectOneReview" resultType="Review">
 		SELECT *
 		FROM review
-		WHERE gymId = #{gymId} AND reviewNo = #{reviewNo};
+		WHERE reviewNo = #{reviewNo};
 	</select>
 	
 	<update id="updateReview" parameterType="Review">
 		UPDATE review
 		SET content = #{content}
-		WHERE gymId = #{gymId} AND userId=#{userId} AND reviewNo = #{reviewNo};
+		WHERE reviewNo = #{reviewNo};
 	</update>
 	
 	<delete id="deleteReview">
 		DELETE FROM review
-		WHERE gymId = #{gymId} AND reviewNo = #{reviewNo};
+		WHERE reviewNo = #{reviewNo};
 	</delete>
 	
 

@@ -18,12 +18,12 @@ public interface ReviewDao {
 	List<Review> selectUserReview(String userId);
 
 	// 리뷰 한개 조회
-	Review selectOneReview(@Param("gymId") String gymId,@Param("reviewNo") int reviewNo);
+	Review selectOneReview(@Param("reviewNo") int reviewNo);
  
 	// 리뷰 수정
 	int updateReview(Review review);
 
 	// 리뷰 삭제
-	int deleteReview(@Param("gymId")String gymId, @Param("reviewNo") int reviewNo);
+	int deleteReview(@Param("reviewNo") int reviewNo);
 
 }

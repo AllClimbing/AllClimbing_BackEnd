@@ -31,8 +31,8 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public Review getOneReview(String gymId, int reviewNo) {
-		return rDao.selectOneReview(gymId, reviewNo);
+	public Review getOneReview(int reviewNo) {
+		return rDao.selectOneReview(reviewNo);
 
 	}
 
@@ -43,8 +43,8 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public int removeReview(String gymId, int reviewNo) {
-		return rDao.deleteReview(gymId, reviewNo);
+	public int removeReview(int reviewNo) {
+		return rDao.deleteReview(reviewNo);
 
 	}
 
