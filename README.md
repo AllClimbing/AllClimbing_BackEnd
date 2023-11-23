@@ -1,5 +1,5 @@
 # FINAL PROJECT README
-석지명 김남준
+김남준 석지명
 
 <br/>
 <br/>
@@ -145,111 +145,16 @@
 
 ### 5️⃣ 폴더 구조
 
-🟢 프론트엔트 폴더 구조
+🟢 프론트엔드 폴더 구조
 
-📦src
- ┣ 📂assets
- ┃ ┣ 📂css
- ┃ ┃ ┣ 📜app.css
- ┃ ┃ ┣ 📜landing.css
- ┃ ┃ ┗ 📜PlaceList.css
- ┃ ┣ 📜addBtn.svg
- ┃ ┣ 📜backArrow.svg
- ┃ ┣ 📜call.svg
- ┃ ┣ 📜competition.svg
- ┃ ┣ 📜distanceImg.svg
- ┃ ┣ 📜dummy.webp
- ┃ ┣ 📜emptyHeart.svg
- ┃ ┣ 📜FulledHeart.svg
- ┃ ┣ 📜heart_empty.svg
- ┃ ┣ 📜heart_fulled.svg
- ┃ ┣ 📜link.svg
- ┃ ┣ 📜list.svg
- ┃ ┣ 📜loading.svg
- ┃ ┣ 📜logo.svg
- ┃ ┣ 📜map.svg
- ┃ ┣ 📜mypage.svg
- ┃ ┣ 📜notbuild.svg
- ┃ ┣ 📜profile.svg
- ┃ ┣ 📜reviewAddBtn.svg
- ┃ ┣ 📜review_delete.svg
- ┃ ┣ 📜review_edit.svg
- ┃ ┣ 📜underArrow.svg
- ┃ ┗ 📜wishlist.svg
- ┣ 📂components
- ┃ ┣ 📂common
- ┃ ┃ ┣ 📜AppLayout.vue
- ┃ ┃ ┗ 📜GNB.vue
- ┃ ┣ 📂langding
- ┃ ┃ ┣ 📜LeftLandingPage.vue
- ┃ ┃ ┗ 📜RightLangdingPage.vue
- ┃ ┗ 📂ui
- ┃ ┃ ┗ 📜SkeletonUi.vue
- ┣ 📂router
- ┃ ┗ 📜index.js
- ┣ 📂stores
- ┃ ┗ 📜user.js
- ┣ 📂views
- ┃ ┣ 📜CompetitionList.vue
- ┃ ┣ 📜ListDetail.vue
- ┃ ┣ 📜LoginView.vue
- ┃ ┣ 📜MyPage.vue
- ┃ ┣ 📜PlaceList.vue
- ┃ ┣ 📜UpdateReview.vue
- ┃ ┣ 📜WishList.vue
- ┃ ┗ 📜WriteReview.vue
- ┣ 📜App.vue
- ┗ 📜main.js
+![frontFolderStructure](https://github.com/jseok0917/jseok0917/assets/139304962/1e2c3be1-492b-4237-a354-54f52c3cab66)
 
 <br>
 <br>
 
 🔴 백엔드 폴더 구조
 
-📦src
- ┣ 📂main
- ┃ ┣ 📂java
- ┃ ┃ ┗ 📂com
- ┃ ┃ ┃ ┗ 📂ssafy
- ┃ ┃ ┃ ┃ ┗ 📂climbing
- ┃ ┃ ┃ ┃ ┃ ┣ 📂config
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜DBConfig.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜SwaggerConfig.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜WebConfig.java
- ┃ ┃ ┃ ┃ ┃ ┣ 📂interceptor
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜JwtInterceptor.java
- ┃ ┃ ┃ ┃ ┃ ┣ 📂model
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂controller
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜GymController.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ReviewController.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜UserController.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂dao
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜GymDao.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ReviewDao.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜UserDao.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂dto
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜FileDto.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Gym.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Keyword.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Review.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜User.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂service
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜GymService.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜GymServiceImpl.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ReviewService.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ReviewServiceImpl.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜UserService.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜UserServiceImpl.java
- ┃ ┃ ┃ ┃ ┃ ┣ 📂util
- ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜JwtUtil.java
- ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜test.java
- ┃ ┃ ┃ ┃ ┃ ┗ 📜SpringDay13SpringBootBoardApiApplication.java
- ┃ ┗ 📂resources
- ┃ ┃ ┣ 📂mappers
- ┃ ┃ ┃ ┣ 📜GymMapper.xml
- ┃ ┃ ┃ ┣ 📜ReviewMapper.xml
- ┃ ┃ ┃ ┗ 📜UserMapper.xml
- ┃ ┃ ┗ 📜application.properties
+![backFolderStructure](https://github.com/jseok0917/jseok0917/assets/139304962/6672802e-512f-4abd-b00a-2bc3a187d716)
 
 <br>
 <hr>
@@ -345,9 +250,19 @@ CREATE TABLE IF NOT EXISTS `likedgym`(
 
 ```
 
+<br>
+<br>
+
   - 카카오맵 API를 활용하여 클라이밍 암장 데이터들을 모두 크롤링하여 DB에 집어넣는다. 유저 및 리뷰, 찜 데이터는 더미데이터로 넣어놓는다.
 
+🔹 클라이밍 암장 테이블(카카오맵 API를 이용한 크롤링)
 ![gymDB](https://github.com/jseok0917/jseok0917/assets/139304962/2f9ac2a9-7568-4e6f-ad19-bff7d73b6367)
+<br><br>
+🔹 리뷰 테이블
+![reviewDB](https://github.com/jseok0917/jseok0917/assets/139304962/2a12c37d-052d-4f6b-aa47-9e734238216c) <br><br>
+🔹 유저 테이블 / 자주가는암장 중계 테이블 <br><br>
+![userDB](https://github.com/jseok0917/jseok0917/assets/139304962/5ced21e0-2ae0-40bb-95c0-9fdbd4c74b3e)
+![likedgym](https://github.com/jseok0917/jseok0917/assets/139304962/7037c305-43c9-48f2-a79c-18039ed3edc2)
 
 <br>
 <br>
