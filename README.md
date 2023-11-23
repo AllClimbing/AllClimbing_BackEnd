@@ -171,9 +171,9 @@
 <hr>
 <br>
 
-## 📌 프론트엔드 파트 구성도
+## 📌 백엔드 파트 구성도
 
-![frontend_structure](https://github.com/jseok0917/jseok0917/assets/139304962/c429f54e-b6c6-4dd3-975e-09e1cfa2b232)
+![backend_structure](https://github.com/jseok0917/jseok0917/assets/139304962/9b81d5c8-1f9f-471d-99d4-5b457f343d80)
 
 <br>
 <hr>
