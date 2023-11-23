@@ -121,23 +121,23 @@
 ### 2️⃣ 페이지 정의서 & 와이어프레임
 
 <img src="https://github.com/jseok0917/jseok0917/assets/139304962/bf23f389-aab4-4010-8078-18a66bb709ab" style="width : 700px" />
-<img src="https://github.com/jseok0917/jseok0917/assets/139304962/4bbd2495-ab13-4662-bffb-86be3ed90fe5" />
+<img src="https://github.com/jseok0917/jseok0917/assets/139304962/4bbd2495-ab13-4662-bffb-86be3ed90fe5" style="width : 700px"/>
 
 <br>
 <br>
 
 ### 3️⃣ 프로젝트 요구사항 정의서 
 
-![요구사항 정의서](https://github.com/jseok0917/jseok0917/assets/139304962/527f4131-5121-4bc2-8469-92077b96fb5c)
+<img src="https://github.com/jseok0917/jseok0917/assets/139304962/527f4131-5121-4bc2-8469-92077b96fb5c" style="width : 900px"/>
 
 <br>
 <br>
 
 ### 4️⃣ 화면 설계서
 
-![페이지 구성1](https://github.com/jseok0917/jseok0917/assets/139304962/34863f44-d0cb-43ec-b7e7-a57f852dac92)
+<img src="https://github.com/jseok0917/jseok0917/assets/139304962/34863f44-d0cb-43ec-b7e7-a57f852dac92" style="width : 900px"/>
 
-![페이지 구성2](https://github.com/jseok0917/jseok0917/assets/139304962/a746c2b0-648f-4ab6-9fb2-888243b2b4c5)
+<img src="https://github.com/jseok0917/jseok0917/assets/139304962/a746c2b0-648f-4ab6-9fb2-888243b2b4c5" style="width : 900px"/>
 
 <br>
 <hr>
@@ -160,13 +160,6 @@
 <hr>
 <br>
 
-## 📌 프론트엔드 파트 구성도
-
-![frontend_structure](https://github.com/jseok0917/jseok0917/assets/139304962/c429f54e-b6c6-4dd3-975e-09e1cfa2b232)
-
-<br>
-<br>
-
 
 ## 📌 프로젝트_백엔드 목표
 
@@ -175,6 +168,15 @@
 🟢 SpringBoot와 MyBatis연동을 활용한 RestAPI 서버 구현
 
 <br>
+<hr>
+<br>
+
+## 📌 프론트엔드 파트 구성도
+
+![frontend_structure](https://github.com/jseok0917/jseok0917/assets/139304962/c429f54e-b6c6-4dd3-975e-09e1cfa2b232)
+
+<br>
+<hr>
 <br>
 
 ## 📌 프로젝트_백엔드 구현 기능
