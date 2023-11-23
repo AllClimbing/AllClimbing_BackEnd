@@ -36,5 +36,4 @@
         FROM user;
     </select>
 
-
 </mapper>

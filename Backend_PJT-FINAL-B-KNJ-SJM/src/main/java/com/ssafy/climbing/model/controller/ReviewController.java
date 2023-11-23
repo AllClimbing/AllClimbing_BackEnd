@@ -67,7 +67,6 @@ public class ReviewController  {
 	@GetMapping("/select/{reviewNo}")
 	@ApiOperation(value="리뷰 한개 조회")
 	public ResponseEntity<?> selectOneReview(@PathVariable int reviewNo){
-		System.out.println("조회해간거맞다 리뷰한개");
 		Review review = rService.getOneReview(reviewNo);
 		if (review == null) {
 			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
@@ -78,9 +77,6 @@ public class ReviewController  {
 	@PostMapping("/write")
 	@ApiOperation(value="리뷰 작성")
 		public ResponseEntity<Void> write(@RequestPart(value="image", required = false) MultipartFile file, @RequestPart("review") Review review){
-		
-//		System.out.println(file.toString());
-//		System.out.println(review.toString());
 		
 		//파일이 존재하고 가짜파일이 아닐때만
 		if (file != null && file.getSize() > 0) {
@@ -94,7 +90,6 @@ public class ReviewController  {
 			
 			//작성일까지만 불러온다
 			String writtenDay = sdf.format(System.currentTimeMillis());
-			System.out.println(writtenDay);
 			
 			//작성일 폴더가 없다면 폴더 생성
 			//저장될 폴더경로
@@ -112,9 +107,6 @@ public class ReviewController  {
 			//저장될 파일이름
 			UUID uuid = UUID.randomUUID();
 			String saveFileName = uuid.toString()+originalFileName.substring(nameLength-4, nameLength);
-//			File target = new File(saveFolder, saveFileName);
-//			System.out.println("현재 타겟파일은 무엇인가 : "+target.toString());
-			//FileCopyUtiles
 			
 			// 파일 Dto 생성하여 우선 경로만
 			// DAO를 통해 저장
@@ -134,29 +126,14 @@ public class ReviewController  {
 			
 		}
 		
-		System.out.println("이미지경로 잘들어감? : "+review.getReviewImgURL());
-		
 		int result = rService.writeReview(review);
 		if (result == 0) {
 			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
 		}
 		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
 	}
-	//////////////////////////////////////////////////////////////////////////
-//	@PostMapping("/write")
-//	@ApiOperation(value="리뷰 작성")
-//	public ResponseEntity<Void> write(@RequestBody Review review){
-//	
-//		
-//		int result = rService.writeReview(review);
-//		if (result == 0) {
-//			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
-//		}
-//		return new ResponseEntity<Void>(HttpStatus.ACCEPTED);
-//	}
+
 	
-	
-	//////////////////////////////////////////////////////////////////////////
 	@PutMapping("/update")
 	@ApiOperation(value="리뷰 수정")
 	public ResponseEntity<Void> update(@RequestPart(value="image", required = false) MultipartFile file, @RequestPart("review") Review review){
@@ -189,9 +166,6 @@ public class ReviewController  {
 			//저장될 파일이름
 			UUID uuid = UUID.randomUUID();
 			String saveFileName = uuid.toString()+originalFileName.substring(nameLength-4, nameLength);
-//			File target = new File(saveFolder, saveFileName);
-//			System.out.println("현재 타겟파일은 무엇인가 : "+target.toString());
-			//FileCopyUtiles
 			
 			// 파일 Dto 생성하여 우선 경로만
 			// DAO를 통해 저장
@@ -228,18 +202,5 @@ public class ReviewController  {
 		}
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
-
-		
-//		//파일다운로드
-//		@GetMapping("/download")
-//		public ModelAndView download(int fileId, int articleId, ModelAndView mView) {
-//			aService.getFileData(fileId, articleId, mView);
-//			
-//			
-//			mView.setViewName("fileDownLoadView");
-//			
-//			return mView;
-//		}
-	
 
 }

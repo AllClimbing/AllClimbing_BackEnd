@@ -31,5 +31,4 @@ public interface GymService {
 	//암장 찜 해제 기능
 	int deleteFavoriteGym(Keyword keyword);
 	
-	
 }

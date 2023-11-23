@@ -29,6 +29,12 @@ VALUES
 ('635872075', 'ssafy2', '클라이밍의 신 석지명님이 여기 다닌다고 하시던데...', '2023-09-15'),
 ('635872075', 'ssafy4', '김남준 프론트열심히 해라.', '2023-09-15');
 
+INSERT INTO `likedgym` (`userId`, `gymId`)
+VALUES
+('ssafy','1796322688'),
+('ssafy','1455205552'),
+('ssafy', '635872075');
+
 -- 중복된 이메일 안되게해야함
 
 -- INSERT INTO `allclimbing`.`gym` (`gymId`, `gymname`, `operationTime`, `area`, `contact`, `shower`, `park`, `tutoring`, `homepage`, `detail`) 
@@ -39,11 +45,6 @@ VALUES
 -- ('at5478451sdf', '클라이밍파크', '9시부터 14시까지 영업해요~', '100', '010-1234-5678', 1, 1, 1, '', '우리 암장 아주아주 넓고 좋고 깨끗하고 신생이에요~\n'),
 -- ('as2424as68f', 'PEAKERS클라이밍', '9시부터 15시까지 영업해요~', '70', '010-1234-5678', 1, 0, 0, '', '우리 암장 아주아주 넓고 좋고 깨끗하고 신생이에요~\n');
 
-INSERT INTO `likedgym` (`userId`, `gymId`)
-VALUES
-('ssafy','1796322688'),
-('ssafy','1455205552'),
-('ssafy', '635872075');
 
 SELECT v.gymId, v.gymAddress, v.gymName, v.gymImgURL, v.operationTime, v.area, v.contact, v.shower, v.parking, v.tutoring, v.homepage, v.detail FROM 
 gym v JOIN likedgym u ON v.gymId = u.gymId

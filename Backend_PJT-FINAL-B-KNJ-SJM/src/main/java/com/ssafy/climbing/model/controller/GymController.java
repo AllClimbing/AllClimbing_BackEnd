@@ -115,6 +115,4 @@ public class GymController  {
 		return new ResponseEntity<Integer>(result, HttpStatus.ACCEPTED);
 	}
 	
-
-
 }

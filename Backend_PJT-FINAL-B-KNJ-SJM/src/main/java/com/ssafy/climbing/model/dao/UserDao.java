@@ -20,5 +20,4 @@ public interface UserDao {
 	
 	// 유저 목록 조회
 	List<User> selectAllUser();
-
 }
