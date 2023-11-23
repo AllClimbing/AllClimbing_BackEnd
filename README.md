@@ -160,15 +160,15 @@
 <hr>
 <br>
 
-## 📌 백엔드 파트 구성도
+## 📌 프론트엔드 파트 구성도
 
-![backend_structure](https://github.com/jseok0917/jseok0917/assets/139304962/2d78db27-cdd2-464e-af7e-3667f8923bbd)
+![frontend_structure](https://github.com/jseok0917/jseok0917/assets/139304962/c429f54e-b6c6-4dd3-975e-09e1cfa2b232)
 
 <br>
 <br>
 
 
-### 1️⃣ 프로젝트_백엔드 목표
+## 📌 프로젝트_백엔드 목표
 
 🟢 웹 아키텍처를 이해하고 이를 활용하여 웹 프로젝트를 설계하고 구현
 
@@ -177,15 +177,15 @@
 <br>
 <br>
 
-### 2️⃣ 프로젝트_백엔드 구현 순서
+## 📌 프로젝트_백엔드 구현 기능
 
-🟢 작성한 ERD와 MySQL을 이용하여 데이터베이스를 구현한다.
+### 1️⃣ 작성한 ERD와 MySQL을 이용하여 데이터베이스를 구현한다.
 
-  - E-R Diagram
+  🟢 E-R Diagram
 
   ![ERD DIAGRAM](https://github.com/jseok0917/jseok0917/assets/139304962/0ee86420-36e6-4b61-a05d-f295d9b10a9c)
   
-  - 주어진 ERD를 통해 MySQL로 DB 및 테이블을 작성한다.
+  🟢 주어진 ERD를 통해 MySQL로 DB 및 테이블을 작성한다.
 
 ```SQL
 CREATE SCHEMA allclimbing;
@@ -253,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `likedgym`(
 <br>
 <br>
 
-  - 카카오맵 API를 활용하여 클라이밍 암장 데이터들을 모두 크롤링하여 DB에 집어넣는다. 유저 및 리뷰, 찜 데이터는 더미데이터로 넣어놓는다.
+  🟢 카카오맵 API를 활용하여 클라이밍 암장 데이터들을 모두 크롤링하여 DB에 집어넣는다. 유저 및 리뷰, 찜 데이터는 더미데이터로 넣어놓는다.
 
 🔹 클라이밍 암장 테이블(카카오맵 API를 이용한 크롤링)
 ![gymDB](https://github.com/jseok0917/jseok0917/assets/139304962/2f9ac2a9-7568-4e6f-ad19-bff7d73b6367)
@@ -268,9 +268,9 @@ CREATE TABLE IF NOT EXISTS `likedgym`(
 <br>
 
 
-🟢 SpringBoot를 활용하여 MVC패턴을 설계하고, DB와 서버를 연결한다.
+### 2️⃣ SpringBoot를 활용하여 MVC패턴을 설계하고, DB와 서버를 연결한다.
 
-  - Spring Starter Project로 프로젝트를 시작한다. 
+  🟢 Spring Starter Project로 프로젝트를 시작한다. 
     - Type : maven
     - Java Version : 8
     - Spring Boot Version : 2.7.17
@@ -278,7 +278,7 @@ CREATE TABLE IF NOT EXISTS `likedgym`(
                     SpringFox Swagger UI(springfox-boot-starter), Java JWT
 
   
-  - applicaition.properties, Configuration을 작성하여 Spring Boot를 사용하고 DB와 연결하기 위한 설정을 진행한다.
+  🟢 applicaition.properties, Configuration을 작성하여 Spring Boot를 사용하고 DB와 연결하기 위한 설정을 진행한다.
 
     🔹 applicaition.properties <br>
     🔹 DBconfig <br>
@@ -343,7 +343,7 @@ public class SwaggerConfig {
 <br>
 <br>  
 
-🟢 MVC패턴을 위한 클래스 설계도(UML Class Diagram)
+### 3️⃣ MVC패턴을 위한 클래스 설계도(UML Class Diagram)
 
 ![클래스 다이어그램](https://github.com/jseok0917/jseok0917/assets/139304962/a6d6ec61-ada7-43b5-84d9-b90ac0656653)
 
@@ -351,9 +351,9 @@ public class SwaggerConfig {
 <br>
 
 
-🟢 DTO, DAO, MAPPER 순으로 코드를 작성하고, MyBatis를 연동하여 DB와 서버를 연결한다.
+### 4️⃣ DTO, DAO, MAPPER 순으로 코드를 작성하고, MyBatis를 연동하여 DB와 서버를 연결한다.
 
-  - DTO(Gym, Review, User 클래스)를 작성한다. (Getter, Setter 파트 생략)
+  🟢 DTO(Gym, Review, User 클래스)를 작성한다. (Getter, Setter 파트 생략)
 
 ```java
 //Gym DTO
@@ -400,7 +400,7 @@ public class User {
 <br>
 <br>
 
-  - DAO(GymDao, ReviewDao, UserDao 클래스)를 작성한다.
+  🟢 DAO(GymDao, ReviewDao, UserDao 클래스)를 작성한다.
 
 ```java
 //GymDao
@@ -479,7 +479,7 @@ public interface UserDao {
 <br>
 <br>
 
-  - 마지막으로 Mappers(GymMapper, ReviewMapper, UserMapper)을 작성하여 DB와 서버의 연동을 완료한다.
+  🟢 마지막으로 Mappers(GymMapper, ReviewMapper, UserMapper)을 작성하여 DB와 서버의 연동을 완료한다.
 
 ```xml
 <!-- GymMapper.xml -->
@@ -630,14 +630,13 @@ public interface UserDao {
 <br>
 <br>
 
-🟢 Service, Controller 를 모두 구현하여 RESTAPI 서버로 핵심기능을 구현한다.
+### 5️⃣ Service, Controller 를 모두 구현하여 RESTAPI 서버로 핵심기능을 구현한다.
 
-  - Service(GymService, ReviewService, UserService 클래스)를 작성한다.
-    - 코드 생략
+🟢 Service(GymService, ReviewService, UserService 클래스)를 작성한다. - 코드 생략
 
-  - Controller(GymController, ReviewController)를 작성하여 핵심 기능을 우선적으로 구현한다.
-    - @RestController, @Get/Post/Put/Delete+Mapping @RequestBody 등 Annotation을 이용하여 RESTAPI 서버를 구현한다.
-    - UserController는 핵심기능 API 테스트 후 Jwt토큰을 이용하여 프론트엔드와 협업하여 작성할 예정
+🟢 Controller(GymController, ReviewController)를 작성하여 핵심 기능을 우선적으로 구현한다. <br>
+    @RestController, @Get/Post/Put/Delete+Mapping @RequestBody 등 Annotation을 이용하여 RESTAPI 서버를 구현한다. <br>
+    UserController는 핵심기능 API 테스트 후 Jwt토큰을 이용하여 프론트엔드와 협업하여 작성할 예정
 
 ```java
 //GymController
@@ -915,7 +914,7 @@ public class ReviewController  {
 <br>
 
 
-🟢 구현한 RESTAPI 서버의 각 기능들을 Swagger-ui를 이용하여 테스트한다.
+### 6️⃣ 구현한 RESTAPI 서버의 각 기능들을 Swagger-ui를 이용하여 테스트한다.
 
 
 <img src="https://github.com/jseok0917/jseok0917/assets/139304962/87a91b74-c2dc-43b5-9994-5f0135383c81" style="width : 300px;" />
@@ -924,9 +923,9 @@ public class ReviewController  {
 <br>
 <br>
 
-🟢 JWT를 이용하여 토큰을 이용한 로그인 인증 기능과 인터셉터를 구현한다.
+### 7️⃣ JWT를 이용하여 토큰을 이용한 로그인 인증 기능과 인터셉터를 구현한다.
 
-  - 토큰 생성과 유효성 검사를 위한 JwtUtil 클래스를 작성한다.
+  🟢 토큰 생성과 유효성 검사를 위한 JwtUtil 클래스를 작성한다.
 
 ```java
 @Component
@@ -958,7 +957,7 @@ public class JwtUtil {
 <br>
 <br>
 
-  - UserController를 작성하여 로그인 시 JwtUtil을 활용하여 Token을 생성해 클라이언트에게 전달해준다.
+  🟢 UserController를 작성하여 로그인 시 JwtUtil을 활용하여 Token을 생성해 클라이언트에게 전달해준다.
   클라이언트에서 페이지 전환이 일어날 때마다 서버로 토큰을 전달하여 유효성을 검사하도록 구현한다.
 
 ```java
@@ -1045,7 +1044,7 @@ public class UserController  {
 <br>
 <br>
 
-  - 로그인 인터셉터 사용이 가능하도록 
+  🟢 로그인 인터셉터 사용이 가능하도록 
   WebConfig에 인터셉터 설정을 추가한다.
 
 ```java
@@ -1060,7 +1059,7 @@ public class UserController  {
 <br>
 <br>
 
-  - 로그인 인터셉터를 구현하여, 클라이언트로부터 요청을 받을 때마다 토큰을 전달받아 
+  🟢 로그인 인터셉터를 구현하여, 클라이언트로부터 요청을 받을 때마다 토큰을 전달받아 
   유효하지않은 토큰일 경우 false를 반환한다. 
 
 ```java
@@ -1097,7 +1096,7 @@ public class JwtInterceptor implements HandlerInterceptor{
 <br>
 <br>
 
-🟢 유저 RESTAPI의 작동에 문제가 없는지 프론트엔드와 협업하여 검증한다.
+### 8️⃣ 유저 RESTAPI의 작동에 문제가 없는지 프론트엔드와 협업하여 검증한다.
 
 <img src="https://github.com/jseok0917/jseok0917/assets/139304962/1020e620-8766-40ad-8931-0089890c8ce6" style="width : 300px;" />
 
